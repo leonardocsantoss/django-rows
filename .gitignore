@@ -1,0 +1,11 @@
+*.pyc
+*.py~
+*.sqlite3
+*.DS_Store
+*.fuse_hidden*
+media
+static
+django_rows/settings/local.py
+django_rows/settings/production.py
+django_rows/wsgi.py
+manage.py
