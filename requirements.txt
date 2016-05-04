@@ -1,0 +1,11 @@
+django<1.10
+django-localflavor
+mysql-python
+gunicorn
+
+
+# rows
+xlrd
+xlwt
+lxml
+unicodecsv
