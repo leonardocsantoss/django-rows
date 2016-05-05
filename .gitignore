@@ -7,5 +7,5 @@ media
 static
 django_rows/settings/local.py
 django_rows/settings/production.py
-django_rows/wsgi.py
+wsgi.py
 manage.py

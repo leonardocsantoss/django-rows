@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from django import forms
+from django.core.files.storage import default_storage
+from django.core.files.base import ContentFile
+from django.conf import settings
 
-import rows
+import os, rows
 import cStringIO as StringIO
-from io import BytesIO
 
 
 class ConvertForm(forms.Form):
@@ -27,14 +29,18 @@ class ConvertForm(forms.Form):
         return convert_file
 
     def convert(self):
+
         convert_file = self.cleaned_data.get('convert_file')
+        path = os.path.join(settings.MEDIA_ROOT, default_storage.save(convert_file.name, ContentFile(convert_file.read())))
+
         convert_type = convert_file.name.split('.')[-1]
         type_to = self.cleaned_data.get('type_to')
 
         # Import
-        data = getattr(rows, 'import_from_%s' % convert_type)(BytesIO(convert_file.read()))
+        data = getattr(rows, 'import_from_%s' % convert_type)(path)
         # Export
         result = StringIO.StringIO()
         getattr(rows, 'export_to_%s' % type_to)(data, result)
 
+        os.unlink(path)
         return result
