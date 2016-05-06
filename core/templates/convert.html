@@ -10,6 +10,13 @@
       <span class="help-block">{{ error }}</span>
       {% endfor %}
     </div>
+    <h2 class="form-file-heading">or, insert a url</h2>
+    <div class="form-group{% if form.convert_url.errors %} has-error{% endif %}">
+      <input type="text" id="input-convert_url" class="form-control" name="convert_url" placeholder="Url">
+      {% for error in form.convert_url.errors %}
+      <span class="help-block">{{ error }}</span>
+      {% endfor %}
+    </div>
     <div class="form-group{% if form.type_to.errors %} has-error{% endif %}">
       <label for="input-type_to" class="control-label">Convert to</label>
       {{ form.type_to }}
