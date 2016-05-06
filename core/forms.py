@@ -31,7 +31,7 @@ class ConvertForm(forms.Form):
         if not convert_url and convert_file:
             if not convert_file.name.split('.')[-1] in [t[0] for t in self.TYPE_CHOICES]:
                 raise forms.ValidationError(u'The accepted formats is %s. Send your file in one of these formats.' % u', '.join([t[0] for t in self.TYPE_CHOICES]))
-            if convert_file.size/1024 > 1024:
+            if convert_file.size/1024 > 2048:
                 raise forms.ValidationError(u'The maximum size is 1MB.')
             return convert_file
 

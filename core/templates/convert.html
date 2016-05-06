@@ -6,6 +6,7 @@
     <h2 class="form-file-heading">Please, select you file</h2>
     <div class="form-group{% if form.convert_file.errors %} has-error{% endif %}">
       <input type="file" id="input-convert_file" class="form-control" name="convert_file" placeholder="File" autofocus>
+      <span class="help-block">The maximum size is 2MB.</span>
       {% for error in form.convert_file.errors %}
       <span class="help-block">{{ error }}</span>
       {% endfor %}

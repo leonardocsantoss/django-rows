@@ -9,3 +9,4 @@ django_rows/settings/local.py
 django_rows/settings/production.py
 wsgi.py
 manage.py
+fabfile.py
