@@ -26,7 +26,7 @@ class ConvertForm(forms.Form):
         convert_file = self.cleaned_data.get('convert_file')
         convert_url = self.cleaned_data.get('convert_url')
         if not convert_url and not convert_file:
-            raise forms.ValidationError(u'Select a file or insert a url.')
+            raise forms.ValidationError(u'Select a file or insert an url.')
 
         if not convert_url and convert_file:
             if not convert_file.name.split('.')[-1] in [t[0] for t in self.TYPE_CHOICES]:
